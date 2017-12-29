@@ -2,9 +2,15 @@
 // t, the time and date; v, the height of the tide; and type, high or low tide;
 // t, the NOAA time string, will be formatted as "YYYY-MM-DD hh:mm"
 
+var todayDate = new Date();
+var todayDate2 = new Date();
+var tomorrowDate = todayDate2.setDate(todayDate2.getDate() + 1);
+var today = formatDate(todayDate);
+var tomorrow = formatDate(tomorrowDate);
+
 // XHR stuff
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&application=NOS.COOPS.TAC.WL&begin_date=20171228&end_date=20171229&datum=MLLW&station=8447173&time_zone=lst_ldt&units=english&interval=hilo&format=json",);
+xhr.open("GET", "https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&application=NOS.COOPS.TAC.WL&begin_date="+today+"&end_date="+tomorrow+"&datum=MLLW&station=8447173&time_zone=lst_ldt&units=english&interval=hilo&format=json",);
 xhr.responseType = "json";
 
 // takes in a date and formats it YYYYMMDD
@@ -18,12 +24,6 @@ function formatDate(d) {
           (dd>9 ? '' : '0') + dd
          ].join('');
 }
-
-var todayDate = new Date();
-var todayDate2 = new Date();
-var tomorrowDate = todayDate2.setDate(todayDate2.getDate() + 1);
-var today = formatDate(todayDate);
-var tomorrow = formatDate(tomorrowDate);
 
 // gets the NOAA-formatted date from a TideObject and formats it as "YYYYMMDD"
 function getNOAADate(tide) {
