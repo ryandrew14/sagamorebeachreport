@@ -2,14 +2,13 @@ html {
   margin: auto;
   padding: 30px;
   font-family: "Times New Roman", Times, serif;
-  background-image: url(../sagamore-background.jpg);
-  background-attachment: fixed;
+  background-image: url(../beach.JPG);
+  backround-size: contain;
 }
 
 #welcomeMessage {
   font-size: 48px;
   background-color: white;
-  background-blend-mode: lighten;
   margin: 20px;
   border-bottom-color: black;
   border-bottom-style: solid;
@@ -25,5 +24,10 @@ html {
 }
 
 .tideData {
-  font-size: 24px;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
+
+.btn-github {
+    color: #6e5494;
+    border-color: #6e5494;
